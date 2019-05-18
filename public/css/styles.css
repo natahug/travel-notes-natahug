@@ -3,13 +3,18 @@
     padding:0;
     box-sizing: border-box;
 }
+html, body{
+    height: 100%;
+}
+
 body{
     font-family: 'Questrial', sans-serif;
     color:black;
 }
 .menu-container {
     color: #fff;
-    background-color: #5995DA;  /* Blue */
+    background-color:lightcoral;
+    border-bottom: 20px solid coral;  /* Blue */
     padding: 20px 0;
     display: flex;
     justify-content: center;   
@@ -23,7 +28,7 @@ body{
   }
 .header-container {
    
-    background-color: #5995DA;  /* Blue */
+    
     padding: 20px 0;
     display: flex;
     justify-content: center;
@@ -50,7 +55,4 @@ body{
       font-size: 1em;
       font-family: 'Questrial', sans-serif;
   }
-  .img-container{
-      
-      padding: 10px 10px 10px 10px;
-  }
+ 
