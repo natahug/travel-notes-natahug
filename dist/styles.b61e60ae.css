@@ -70,7 +70,7 @@ padding-bottom: 2%;
 .frame{
   /*border: 2px solid purple;*/
   border: 2px solid black;
-  background-image: url("../img/cph.jpg");
+  background-image: url("/cph.4e22fc53.jpg");
   background-size: cover;
   height:500px;
   width:800px;
@@ -139,3 +139,5 @@ justify-content: center;
   height: 10px;
 }
   
+
+/*# sourceMappingURL=/styles.b61e60ae.css.map */
