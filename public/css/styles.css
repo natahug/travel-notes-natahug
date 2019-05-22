@@ -3,13 +3,17 @@
     padding:0;
     box-sizing: border-box;
 }
-html, body{
-    height: 100%;
+
+  html, body{
+    padding-left:15px;
+    padding-right:15px;
+    
 }
 
 body{
     font-family: 'Questrial', sans-serif;
     color:black;
+   
     
    
 }
@@ -20,9 +24,8 @@ body{
 }
 .menu{
   /*border: 2px solid red;*/
+  color:green;
   padding:15px;
-  border-bottom:2px solid black;
-  background-color:lightblue;
   display:flex;
   justify-content: space-around;
 }
@@ -49,18 +52,20 @@ a:visited:hover{
 
 .header{
   /*border:2px solid blue;*/
-  background-color: white;
+  padding-top:5%;
+ 
 }
 .heading{
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Xenosphere';
   font-style: italic;
   text-align: center;
-  font-size: 70px;
+  
+  
   
 }
 #lessthan, #greaterthan{
   font-family: 'Roboto Mono', monospace;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 .intro{
   text-align: center;
@@ -73,16 +78,14 @@ a:visited:hover{
 .photo-container{
   /*border:2px solid green; */
 padding-bottom: 2%;
+display: flex;
+justify-content: center;
 }
 
-.frame{
-  /*border: 2px solid purple;*/
-  border: 2px solid black;
-  background-image: url("../img/cph.jpg");
-  background-size: cover;
-  height:700px;
-  width:90%;
-  margin: 0 auto;
+.photo-container img{
+  height:300px;
+  
+  
 }
 .this-one{
   text-align:center;
@@ -95,11 +98,10 @@ text-align: left;
 }
 .post-box {
   padding:10px;
-  width:90%;
   margin: 0 auto;
-  border: 2px solid black;
+  border: .1px solid black;
   line-height: 30px;
-  font-size: 20px;
+
 }
 .box-bucket{
   padding:30px;
@@ -141,5 +143,47 @@ justify-content: center;
 }
 .blank{
   height: 10px;
+}
+.nav{
+  list-style-type: none;
+}
+
+/*Mobile*/
+@media only screen and (max-width: 400px) {
+  .heading {
+    padding-top:5%;
+   
+    font-size:20px; 
+    line-height:60px;
+    letter-spacing: 15px;
+    
+  }
+  .post-box{
+    font-size:15px;
+  }
+  .photo-container img{
+    padding-top:10%;
+    height:300px;
+  }
+}
+/*tablet*/
+@media only screen and (min-width: 401px) and (max-width:960px) {
+  .heading {
+    font-size:50px; 
+    letter-spacing: 10px;
+  }
+  .post-box{
+    font-size:15px;
+  }
+}
+/*desktop*/
+@media only screen and (min-width:961px){
+  .heading{
+    font-size:70px;
+    letter-spacing: 10px;
+  }
+  .post-box{
+    font-size: 20px;
+  }
 }
   
