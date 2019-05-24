@@ -184,12 +184,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"css/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./webfontkit/xenosphere-webfont.ttf":[["xenosphere-webfont.9a752a73.ttf","css/webfontkit/xenosphere-webfont.ttf"],"css/webfontkit/xenosphere-webfont.ttf"],"./webfontkit/xenosphere-webfont.woff":[["xenosphere-webfont.313fff94.woff","css/webfontkit/xenosphere-webfont.woff"],"css/webfontkit/xenosphere-webfont.woff"],"./webfontkit/xenosphere-webfont.woff2":[["xenosphere-webfont.76a93bfe.woff2","css/webfontkit/xenosphere-webfont.woff2"],"css/webfontkit/xenosphere-webfont.woff2"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64681" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60551" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -393,4 +388,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/styles.b61e60ae.js.map
+//# sourceMappingURL=/dom.js.map

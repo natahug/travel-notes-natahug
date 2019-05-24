@@ -117,79 +117,43 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"dom.js":[function(require,module,exports) {
+var main = function main() {
+  document.body.style.border = "1px solid pink";
+  console.log(document.body.childNodes[1].childNodes[1].childNodes[0].nodeType);
+  var h1 = document.getElementById("the-heading");
+  h1.innerHTML = "HELLO WORLD";
+  h1.style.border = "50px solid magenta";
+  var firstItem = document.querySelector(".first-item");
+  firstItem.style.border = "1px solid white";
+  var fourthNode = document.createElement("li");
+  fourthNode.innerText = "Four"; //have to add to the tree
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+  firstItem.parentElement.appendChild(fourthNode);
+  var lis = document.querySelectorAll("li");
+  console.log(lis);
+};
 
-  return bundleURL;
-}
+alert("Hello");
+window.addEventListener("load", main);
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+var countNode = function countNode(aNode) {
+  //base case
+  if (aNode.childNodes.length === 0) {
+    return 1;
+  } else {
+    var sum = 1;
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+    for (var i = 0; i < aNode.childNodes.length; i++) {
+      sum += countNode(aNode.childNodes[i]);
     }
 
-    cssTimeout = null;
-  }, 50);
-}
+    return sum;
+  }
+};
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"css/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./webfontkit/xenosphere-webfont.ttf":[["xenosphere-webfont.9a752a73.ttf","css/webfontkit/xenosphere-webfont.ttf"],"css/webfontkit/xenosphere-webfont.ttf"],"./webfontkit/xenosphere-webfont.woff":[["xenosphere-webfont.313fff94.woff","css/webfontkit/xenosphere-webfont.woff"],"css/webfontkit/xenosphere-webfont.woff"],"./webfontkit/xenosphere-webfont.woff2":[["xenosphere-webfont.76a93bfe.woff2","css/webfontkit/xenosphere-webfont.woff2"],"css/webfontkit/xenosphere-webfont.woff2"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+console.log(countNode(document.body));
+},{}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +181,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64681" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60551" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +356,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/styles.b61e60ae.js.map
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js","dom.js"], null)
+//# sourceMappingURL=/dom.1d0b6d56.js.map
