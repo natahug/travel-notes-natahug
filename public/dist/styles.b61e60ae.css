@@ -63,7 +63,6 @@ a:visited:hover{
  
 }
 .heading{
-
   font-family: 'xenosphereregular';
   font-style: italic;
   text-align: center;
@@ -113,18 +112,13 @@ text-align: left;
 
 }
 .box-bucket{
-  display: flex;
-  justify-content: center;
   padding:30px;
-  border: 2.2px solid black;
-}
-.bucket-list{
-  columns: 2;
+  width:800px;
+  margin: 0 auto;
+  font-size: 1.2em;
   text-align: center;
-  
-}
-.bucket-list li {
-  list-style-type: none;
+  border: 2.2px solid black;
+
 }
 .date{
 text-align:center;
@@ -150,9 +144,7 @@ img{
   font-size:1.2em;
 }
 .bucket-pics{
-  width:50%;
-  height: 200px;
-  border: 2px solid black;
+  width:20%;
 }
 .bucket-list{
 justify-content: center;
@@ -165,30 +157,31 @@ justify-content: center;
 }
 
 /*Mobile*/
-@media only screen and (max-width: 375px) {
-  
-  .post-box, .bucket-list, .box-bucket{
+@media only screen and (max-width: 400px) {
+  .heading {
+    padding-top:5%;
+   
+    font-size:20px; 
+    line-height:60px;
+    letter-spacing: 15px;
+    
+  }
+  .post-box{
     font-size:15px;
   }
   .photo-container img{
     padding-top:10%;
     height:300px;
   }
-  .bucket-list{
-    columns: 1;
-  }
 }
 /*tablet*/
-@media only screen and (min-width: 376px) and (max-width:960px) {
+@media only screen and (min-width: 401px) and (max-width:960px) {
   .heading {
-    font-size:30px; 
+    font-size:50px; 
     letter-spacing: 10px;
   }
-  .post-box, .bucket-list, .box-bucket{
+  .post-box{
     font-size:15px;
-  }
-  .bucket-list{
-    columns: 1;
   }
 }
 /*desktop*/
@@ -197,7 +190,7 @@ justify-content: center;
     font-size:70px;
     letter-spacing: 10px;
   }
-  .post-box, .bucket-list, .box-bucket{
+  .post-box{
     font-size: 20px;
   }
 }
