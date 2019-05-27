@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //alert("block!");
 //document.write("dude where's my page");
 //window.document.body.innerHTML = "???" //how to erase whole page
-},{}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -149,7 +149,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59431" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50734" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -324,5 +324,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js","demo.js"], null)
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","demo.js"], null)
 //# sourceMappingURL=/demo.d3b53871.js.map
