@@ -7,6 +7,7 @@
   html, body{
     padding-left:15px;
     padding-right:15px;
+
     
 }
 @font-face {
@@ -30,9 +31,7 @@ body{
 
 }
 .menu{
-  /*border: 2px solid red;*/
-  color:green;
-  padding:15px;
+  padding:5vh;
   display:flex;
   justify-content: space-around;
 }
@@ -41,7 +40,7 @@ body{
   text-decoration: none;
 }
 a:hover{
-  color:red;
+  font-style: italic;
   text-decoration: none;
 }
 a:link{
@@ -54,16 +53,17 @@ a:visited{
   text-emphasis: none;
 }
 a:visited:hover{
-  color:red;
+  color:lime;
 }
 
 .header{
   /*border:2px solid blue;*/
-  padding-top:5%;
- 
+  padding-top:5vh;
+  border: 1px solid black;
 }
-.heading{
 
+
+.heading{
   font-family: 'xenosphereregular';
   font-style: italic;
   text-align: center;
@@ -92,9 +92,12 @@ justify-content: center;
 }
 
 .photo-container img{
-  height:300px;
-  
-  
+  height:50vh;
+  padding:20px;
+}
+.intro-p{
+  height:30vh;
+  border: 1px solid black;
 }
 .this-one{
   text-align:center;
@@ -200,5 +203,60 @@ justify-content: center;
   .post-box, .bucket-list, .box-bucket{
     font-size: 20px;
   }
+}
+
+.gallery__master {
+  list-style: none;
+  font-size: 0.75em;
+  display: flex;
+  overflow-x: auto;
+  height: 20vh;
+}
+
+.gallery__thumb {
+  height: 20vh;
+  margin-right: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery__thumb.selected .gallery__thumb-img-wrap {
+  border: 2px solid #333;
+}
+
+.gallery__thumb:hover {
+  cursor: pointer;
+}
+
+.gallery__thumb-img-wrap {
+  display: block;
+  border: 2px solid black;
+  width: 19vh;
+  height: 19vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery__thumb-img {
+  max-width: 19vh;
+  max-height: 19vh;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.gallery__detail-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 78vh;
+}
+
+.gallery__detail-img {
+  margin-top: 2vh;
+  max-height: 78vh;
+  max-width: 98vw;
 }
 
