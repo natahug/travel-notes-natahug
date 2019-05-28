@@ -15,7 +15,8 @@ let main = () => {
 
 type Image = {
     src: string,
-    thumbSrc: string
+    thumbSrc: string,
+    cap: string
 }
 
 type GalleryProps = {
@@ -40,11 +41,22 @@ class Gallery extends React.Component<GalleryProps, GalleryState> {
         return <div className="gallery">
             <ul className="gallery__master">{
                 this.props.images.map((image) => {
+                    if(this.state.selected === image){
                     return <Thumbnail key = {image.src}
                             image = {image}
-                            onSelect= {(image) => this.selectedHandler(image)}/>
+                            onSelect= {(image) => this.selectedHandler(image)}
+                            selected={true}/>
+                    } else {
+                        return <Thumbnail key = {image.src}
+                        image = {image}
+                        onSelect= {(image) => this.selectedHandler(image)}
+                        selected={false}/>
+                    }
                 })
             }</ul>
+            <div className="gallery__caption"> 
+            {this.state.selected.cap}
+            </div>
             <div className="gallery__detail">
                 <div className="gallery__detail-img-wrap">
                     <img className="gallery__detail-img" src = {this.state.selected.src}/>
@@ -62,18 +74,31 @@ class Gallery extends React.Component<GalleryProps, GalleryState> {
 type ThumbnailProps = {
     image: Image,
     onSelect?: (image:Image) => void,
+    selected: boolean,
 }
 
 class Thumbnail extends React.Component<ThumbnailProps> {
     render() {
+        if(this.props.selected === false){
         return <li className="gallery__thumb" 
                     onClick = {()=> this.clickHandler()}>
+           
             <div className="gallery__thumb-img-wrap">
                 <img className="gallery__thumb-img" 
                 src = {this.props.image.thumbSrc}/>
             </div>
         </li>;
+    } else{
+            return <li className="gallery__thumb selected" 
+                        onClick = {()=> this.clickHandler()}>
+               
+                <div className="gallery__thumb-img-wrap">
+                    <img className="gallery__thumb-img" 
+                    src = {this.props.image.thumbSrc}/>
+                </div>
+            </li>;
     }
+}
 
     clickHandler () {
         if (this.props.onSelect !== undefined){

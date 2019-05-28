@@ -139,16 +139,14 @@ padding-bottom:10px;
 
 .floated-bio{
   float: right;
-  width:25%;
+  width:250px;
   padding-right:10px;
  
 }
 img{
   padding:10px;
 }
-.box2{
-  padding:0 200px ;
-}
+
 .content-about{
   font-size:1.2em;
 }
@@ -232,7 +230,7 @@ justify-content: center;
 
 .gallery__thumb-img-wrap {
   display: block;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   width: 19vh;
   height: 19vh;
   display: flex;
@@ -260,6 +258,12 @@ justify-content: center;
   max-width: 98vw;
 }
 
+.gallery__caption {
+  text-align: center;
+}
 
+.gallery__thumb.selected .gallery__thumb-img-wrap {
+  border: 4px solid lime;
+}
 
 /*# sourceMappingURL=/styles.b61e60ae.css.map */

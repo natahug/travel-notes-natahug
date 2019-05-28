@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"css/styles.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./webfontkit/xenosphere-webfont.ttf":[["xenosphere-webfont.9a752a73.ttf","css/webfontkit/xenosphere-webfont.ttf"],"css/webfontkit/xenosphere-webfont.ttf"],"./webfontkit/xenosphere-webfont.woff":[["xenosphere-webfont.313fff94.woff","css/webfontkit/xenosphere-webfont.woff"],"css/webfontkit/xenosphere-webfont.woff"],"./webfontkit/xenosphere-webfont.woff2":[["xenosphere-webfont.76a93bfe.woff2","css/webfontkit/xenosphere-webfont.woff2"],"css/webfontkit/xenosphere-webfont.woff2"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./webfontkit/xenosphere-webfont.ttf":[["xenosphere-webfont.9a752a73.ttf","css/webfontkit/xenosphere-webfont.ttf"],"css/webfontkit/xenosphere-webfont.ttf"],"./webfontkit/xenosphere-webfont.woff":[["xenosphere-webfont.313fff94.woff","css/webfontkit/xenosphere-webfont.woff"],"css/webfontkit/xenosphere-webfont.woff"],"./webfontkit/xenosphere-webfont.woff2":[["xenosphere-webfont.76a93bfe.woff2","css/webfontkit/xenosphere-webfont.woff2"],"css/webfontkit/xenosphere-webfont.woff2"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65474" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +392,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
 //# sourceMappingURL=/styles.b61e60ae.js.map
