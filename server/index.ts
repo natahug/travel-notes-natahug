@@ -13,7 +13,27 @@ app.engine("hbs", exphbs({
 app.use(express.static("dist/"));
 
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index",
+    {layout: "default-home.hbs",
+    title: "README"},
+    
+    );
+});
+
+app.get("/about", (req, res) => {
+    res.render("about",
+    {title: "About"}
+    );
+});
+
+app.get("/bucket", (req, res) => {
+    res.render("bucket", 
+    {title: "Bucket List"});
+});
+
+app.get("/gallery", (req, res) => {
+    res.render("gallery",
+    {title: "Photo Gallery"});
 });
 
 app.listen(1234, () => console.log("Listening on 1234"))
