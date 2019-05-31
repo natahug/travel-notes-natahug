@@ -7,7 +7,7 @@
     "start": "ts-node server/index.ts",
     "build": "parcel build client/{*.css,gallery.tsx,main.ts}",
     "prod": "git pull && npm install && npm run build && sudo npm run start",
-    "deploy": "ssh -i ~/.ssh/comp426-2019-natahug.pem ubuntu@18.218.216.95 'sudo service blog_app restart'"
+    "deploy": "ssh blog 'sudo service blog_app restart'"
 },
   "repository": {
     "type": "git",

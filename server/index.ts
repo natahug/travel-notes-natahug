@@ -36,5 +36,6 @@ app.get("/gallery", (req, res) => {
     {title: "Photo Gallery"});
 });
 
-app.listen(1234, () => console.log("Listening on 1234"))
+const PORT = process.env.NODE_ENV === "production" ? 80 : 1234;
+app.listen(PORT, () => console.log(`Listening on ${PORT}`))
    .on("error", (e) => console.error(e));
