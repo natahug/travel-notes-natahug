@@ -6,6 +6,7 @@ import { DB, Rows } from "./db";
 import * as express from "express";
 import * as exphbs from "express-handlebars";
 import { async } from "q";
+import admin from "./admin";
 
 let app = express();
 
@@ -17,6 +18,11 @@ app.engine("hbs", exphbs({
 }));
 
 app.use(express.static("dist/"));
+app.use(express.urlencoded({extended: true}));
+
+app.use("/admin", admin);
+
+app.use(express.static("client/"));
 
 app.get("/", async(req, res) => {
     let [rows] =  await DB.query<Rows>("SELECT * FROM posts ORDER BY time DESC");
@@ -51,12 +57,12 @@ app.get("/about", (req, res) => {
 
 app.get("/bucket", (req, res) => {
     res.render("bucket", 
-    {title: "Bucket List"});
+    {title: "TODO"});
 });
 
 app.get("/gallery", (req, res) => {
     res.render("gallery",
-    {title: "Photo Gallery"});
+    {title: "Gallery"});
 });
 
 export let main = async () => {
