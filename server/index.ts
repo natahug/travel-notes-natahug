@@ -22,10 +22,10 @@ app.use(express.urlencoded({extended: true}));
 
 app.use("/admin", admin);
 
-app.use(express.static("client/"));
+// app.use(express.static("client/"));
 
 app.get("/", async(req, res) => {
-    let [rows] =  await DB.query<Rows>("SELECT * FROM posts ORDER BY time DESC");
+    let [rows] =  await DB.query<Rows>("SELECT * FROM posts ORDER BY publishAt DESC");
     res.render("index", {posts:rows, layout: "default-home.hbs",
     title: "README"});
 });

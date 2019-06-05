@@ -70,6 +70,8 @@ router.get("/todos", async(req, res)=> {
     });
 
 });
+
+
 //defining this route above to ensure its tested
 
 router.get("/todos/new",(req, res) => {
@@ -82,6 +84,8 @@ router.get("/todos/new",(req, res) => {
         },
     });
 });
+
+
 //the route for creating a new todo is just todos bc the the http spec says when you create a new resource, it should be suboridinate to the url you posted data to
 
 router.post("/todos", async (req, res) => {
@@ -156,6 +160,9 @@ router.post("/todos/:id", async (req, res) => {
     }
 });
 
+
+
+
 //add delete support
 router.post("/todos/:id/delete", async(req, res)=> {
     let sql = "DELETE FROM todos WHERE id=:id";
@@ -170,5 +177,123 @@ router.post("/todos/:id/delete", async(req, res)=> {
         res.redirect(`${path(req)}/../../`);
     }
 });
+
+//posts listing
+
+router.get("/posts", async(req, res)=>{
+    let [rows] = await DB.query<Rows>("SELECT * FROM posts ORDER BY publishAt DESC");
+        res.render("admin/posts/index", {
+            posts:rows, 
+            layout:"admin"
+        });
+    
+    });
+    
+//view edited posts
+router.get("/posts/new",(req, res) => {
+    res.render("admin/posts/editor",{
+        action: `${req.baseUrl}/posts`,
+        layout: "admin",
+        todo: {
+            title: "",
+            body:"",
+            time:"",
+            publishAt:""
+        },
+    });
+});
+router.post("/posts", async (req, res) => {
+    try {
+        let sql = `INSERT INTO posts
+        (title, body, time, publishAt)
+        VALUES
+        (:title, :body, :time, publishAt)ORDER BY publishAt DESC`;
+        let params = {
+            title: req.body.title,
+            body: req.body.body,
+            time: req.body.time,
+            publishAt: req.body.publishAt
+        };
+
+        if(req.body.description === ""){
+            res.redirect(path(req) + "/new?message=Invalid Description");
+            return;
+        }
+        //creating a new record in the DB is special bc we need to know the id that the DB assifned to our new record
+        console.log(params);
+        let [result] = await DB.execute<InsertResult>(sql, params);
+        res.redirect(`${path(req)}/${result.insertId}?message=Saved!`);
+    } catch(e) {
+        console.error(e);
+        res.redirect(`${path(req)}?message=Error Saving`);
+    }
+});
+
+
+//view the editor
+router.get("/posts/:id", async (req, res) => {
+
+
+    let sql = "SELECT * FROM posts WHERE id=:id";
+    let params = { id: req.params.id };
+
+    try{
+        let [rows] = await DB.query<Rows>(sql, params);
+        if(rows.length ===1){
+            res.render("admin/posts/editor", {
+                todo: rows[0],
+                action: path(req),
+                layout:"admin",
+                message: req.query.message
+            });
+        }else {
+            res.redirect(`${path(req)}/../`);
+        }
+    }catch (e) {
+        console.error(e);
+        res.redirect(`${path(req)}/../`);
+    }
+});
+
+
+router.post("/posts/:id", async (req, res) => {
+    try {
+        //you can use MYSQL workbench to generate this sql with specific values
+        //replace specific values with placeholders prefixed by :
+        let sql = `UPDATE posts     
+                   SET title=:title, 
+                       body=:body,
+                       time=:time,
+                       publishAt=:publishAt 
+                   WHERE id=:id`;
+        let params = {
+            id: req.params.id,
+            title: req.body.title,
+            body: req.body.body,
+            time: req.body.time,
+            publishAt: req.body.publishAt,
+        };
+        await DB.execute<Rows>(sql, params);
+        res.redirect(`${path(req)}?message=Saved!`);
+    } catch(e) {
+        console.error(e);
+        res.redirect(`${path(req)}?message=Error Saving`);
+    }
+});
+//delete support
+router.post("/posts/:id/delete", async(req, res)=> {
+    let sql = "DELETE FROM posts WHERE id=:id";
+    let params = {
+        id: req.params.id
+    };
+    try{
+        await DB.execute<Rows>(sql, params);
+        res.redirect(`${path(req)}/../../`);
+    } catch (e){
+        console.error(e);
+        res.redirect(`${path(req)}/../../`);
+    }
+});
+ 
 
 export default router;
