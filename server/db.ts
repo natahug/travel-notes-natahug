@@ -1,5 +1,6 @@
 import * as mysql from "mysql2/promise";
 
+export type InsertResult = mysql.OkPacket;
 export type Rows = mysql.RowDataPacket[];
 
 export const DB: mysql.Pool = mysql.createPool({
