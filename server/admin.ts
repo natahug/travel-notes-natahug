@@ -207,7 +207,7 @@ router.post("/posts", async (req, res) => {
         let sql = `INSERT INTO posts
         (title, body, time, publishAt)
         VALUES
-        (:title, :body, :time, publishAt)ORDER BY publishAt DESC`;
+        (:title, :body, :time, publishAt)`;
         let params = {
             title: req.body.title,
             body: req.body.body,
