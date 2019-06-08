@@ -14,12 +14,6 @@ let router = express.Router();
 //cookir parser will read and write secure cookies that are protected by our cookie secret
 router.use(cookieParser(process.env.COOKIE_SECRET));
 
-router.get("/", (req, res) => {
-    res.render("admin/index", {
-        layout: "admin"
-    });
-});
-
 //login form
 router.get("/login", (req, res) => {
     res.render("admin/login", {
@@ -31,7 +25,8 @@ router.get("/login", (req, res) => {
 //test password validity
 router.post("/login", async(req, res) => {
     let isValid = await bcrypt.compare(req.body.password, process.env.ADMIN_PASSWORD_HASH);
-    if(isValid){
+    let isValidKris = await bcrypt.compare(req.body.password, process.env.ADMIN_PASSWORD_HASH2);
+    if(isValid || isValidKris){
         res.cookie("authenticated", "true",{
             signed:true //by using the signed opetion, our cookie is secure
         });
@@ -58,7 +53,11 @@ router.use((req, res, next) => {
     }
 });
 
-
+router.get("/", (req, res) => {
+    res.render("admin/index", {
+        layout: "admin"
+    });
+});
 
 //path will be admin/todos
 //listing all todos
