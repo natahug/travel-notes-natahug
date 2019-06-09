@@ -30,15 +30,15 @@ app.get("/", async(req, res) => {
     title: "README"});
 });
 
-app.get("/todos.json", async (req, res)=> {
-    let results =  await DB.query<Rows>("SELECT * FROM todos");
-    let rows = results[0];
-    res.json(rows);
-});
+// app.get("/todos.json", async (req, res)=> {
+//     let results =  await DB.query<Rows>("SELECT * FROM todos");
+//     let rows = results[0];
+//     res.json(rows);
+// });
 
 app.get("/todos", async (req, res)=> {
     let [rows] =  await DB.query<Rows>("SELECT * FROM todos");
-    res.render("todos-demo", {todos:rows});
+    res.render("todos", {todos:rows});
 
 });
 
@@ -55,8 +55,8 @@ app.get("/about", (req, res) => {
     );
 });
 
-app.get("/bucket", (req, res) => {
-    res.render("bucket", 
+app.get("/todos", (req, res) => {
+    res.render("todos", 
     {title: "TODO"});
 });
 

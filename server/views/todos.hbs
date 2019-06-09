@@ -1,0 +1,21 @@
+<title>TODO.</title>
+<body>
+     <div class = "header">
+            <h1 class= "heading">TODO.</h1>
+            </div>
+
+    <div class ="box-bucket">
+        <ul class = "bucket-list">
+            {{#each todos}}
+    {{#if url}}
+        <li> <a href= "{{url}}">{{description}}</a>
+    {{else}}
+
+    <li> {{description}}</li>
+    {{/if}}
+    {{/each}}
+        </ul>
+    </div>
+      
+    </body>
+    </html>
